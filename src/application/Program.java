@@ -26,7 +26,7 @@ public class Program {
          List<Seller> list = SellerDao.findyByDepartment(department);
          for(Seller sellerObj : list){
             System.out.println(sellerObj);
-
+         }
          System.out.println("\n=== TEST 3: seller findAll ====");
           list = SellerDao.findAll();
          for(Seller Obj : list){
@@ -36,6 +36,12 @@ public class Program {
           Seller newSeller = new Seller(null, "Greg", "greg@gmail.com",new Date(),4000.0,department);
           SellerDao.insert(newSeller);
           System.out.println("Inserted!New id ="+ newSeller.getId());
+
+          System.out.println("\n=== TEST 5: seller insert ====");
+          seller = SellerDao.findByid(1);
+          seller.setName("Mateus wilson");
+          SellerDao.update(seller);
+          System.out.println("Update completed");
+
      }
-}
 }
